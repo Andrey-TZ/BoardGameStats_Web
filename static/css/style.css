@@ -1,0 +1,11 @@
+section{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+input{
+    font-size: 25px;
+}
+p.message{
+    color: red;
+    font-size: 25px;
+}

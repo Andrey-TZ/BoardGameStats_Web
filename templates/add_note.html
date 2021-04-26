@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<div class="container-fluid" align="center">
+    <section>
+        <h1 align="center">Добавление записи</h1>
+        <div class="container-fluid col-6">
+            <form class="login_form needs-validation" method="post" novalidate>
+                <div class="form-floating mb-3">
+                    <input style="height: 65px;" type="text" class="form-control" name="game" id="Game" placeholder="Серп" required/>
+                    <label  for="Game">Название игры</label>
+                    <datalist id="games">
+                        <option value="Серп">
+                        <option value="Селестия">
+                        <option value="Крылья">
+                        <option value="Каркассон">
+                    </datalist>
+                    <div class="invalid-feedback">
+                        Пожалуйста наппишите название игры!
+                    </div>
+                    <div class="valid-feedback">
+                        Хорошая игра!
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input style="height: 65px;" type="number" class="form-control" name="score" id="Score" min="0" required placeholder="100">
+                    <label for="Score">Счёт</label>
+                    <div class="invalid-feedback">
+                        Пожалуйста впишите ваш счёт!
+                    </div>
+                </div>
+                <div class="row radiobutton-row" ALIGN="CENTER">
+                    <label>Результат:</label>
+                    <div class="col-s">
+                        <input class="form-check-input" type="radio" name="result" value="win" id="win" checked/>
+                        <label class="form-check-label" for="win">Победа</label>
+                    </div>
+                    <div class="col-s">
+                        <input class="form-check-input" type="radio" name="result" value="draw" id="draw"/>
+                        <label class="form-check-label" for="draw">Ничья</label>
+                    </div>
+                    <div class="col-s">
+                        <input class="form-check-input" type="radio" name="result" value="lose" id="lose"/>
+                        <label class="form-check-label" for="lose">Проигрыш</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Записать</button>
+            </form>
+        </div>
+        <p class="message" align="center">{{message}}</p>
+    </section>
+    <div>
+        <img src='static/img/13.jpg' alt="Здесь должна быть красивая картинка"
+             class="w-100" align="center">
+    </div>
+</div>
+{% else %}
+<div class="container-fluid" align="center">
+    <h1>Вы не зарегистрированы</h1>
+    <p><a href="/login" class="pe-auto">Войдите</a> или <a href="/register" class="pe-auto">Зарегистрируйтесь</a>,
+        чтобы
+        воспользоваться данной функцией.</p>
+</div>
+{% endif %}
+{% endblock %}

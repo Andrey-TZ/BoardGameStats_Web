@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid" align="center">
+    <h1>Личный кабинет</h1>
+    <section>
+        <div class="row">
+            <div class="col-4"><h2>Имя пользователя:</h2></div>
+            <div class="col-4"><h2>Почта:</h2></div>
+            <div class="col-4"><h2>Дата регистрации</h2></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h4>{{current_user.name}}</h4></div>
+            <div class="col-4"><h4>{{current_user.email}}</h4></div>
+            <div class="col-4"><h4>{{current_user.created_date.date()}}</h4></div>
+        </div>
+    </section>
+    <div class="container-fluid" align="center">
+        <p><img src="static/img/4.jpg" alt="Здесь должна быть картинка, но что-то пошло не так"
+                class="d-inline-block align-bottom w-100" align="center">
+        </p>
+    </div>
+</div>
+{% endblock %}

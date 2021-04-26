@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 align="center">Авторизация</h1>
+{% for category, message in  get_flashed_messages(with_categories=true) %}
+<spam class="{{ category }}">{{ message }}</spam>
+{% endfor %}
+<form action="" method="post" class="needs-validation" novalidate>
+    <div class="container-md" align="center">
+        <div class="form-floating mb-3">
+            <input style="height: 65px;" type="email" class="form-control" name="email" id="Email"
+                   placeholder="example@gmail.com" required/>
+            <label for="Email">Почта</label>
+            <div class="invalid-feedback">
+                Введены некорректные данные!
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input style="height: 65px;" type="password" class="form-control" name="password" id="Pass"
+                   placeholder="password" required>
+            <label for="Pass">Пароль</label>
+            <div class="invalid-feedback">
+                Пароль не введён!
+            </div>
+        </div>
+        <div class="row checkbox-row mb-3">
+            <div class="col-xs-2">
+                <div class="checkbox-inline">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="RememberMe" value="">Запомнить меня</label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary ">Войти</button>
+        <p align="center" style="color: red;">{{message}}</p>
+    </div>
+</form>
+{% endblock %}
