@@ -8,8 +8,9 @@
         <div class="container-fluid col-6">
             <form class="login_form needs-validation" method="post" novalidate>
                 <div class="form-floating mb-3">
-                    <input style="height: 65px;" type="text" class="form-control" name="game" id="Game" placeholder="Серп" required/>
-                    <label  for="Game">Название игры</label>
+                    <input style="height: 65px;" type="text" class="form-control" name="game" id="Game"
+                           placeholder="Серп" required/>
+                    <label for="Game">Название игры</label>
                     <datalist id="games">
                         <option value="Серп">
                         <option value="Селестия">
@@ -24,7 +25,8 @@
                     </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input style="height: 65px;" type="number" class="form-control" name="score" id="Score" min="0" required placeholder="100">
+                    <input style="height: 65px;" type="number" class="form-control" name="score" id="Score" min="0"
+                           required placeholder="100">
                     <label for="Score">Счёт</label>
                     <div class="invalid-feedback">
                         Пожалуйста впишите ваш счёт!
@@ -60,8 +62,7 @@
 <div class="container-fluid" align="center">
     <h1>Вы не зарегистрированы</h1>
     <p><a href="/login" class="pe-auto">Войдите</a> или <a href="/register" class="pe-auto">Зарегистрируйтесь</a>,
-        чтобы
-        воспользоваться данной функцией.</p>
+        чтобы воспользоваться данной функцией.</p>
 </div>
 {% endif %}
 {% endblock %}
