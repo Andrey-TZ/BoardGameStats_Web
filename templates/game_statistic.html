@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid " align="center" style="margin-top: 10px;">
+    <div class="container-fluid" align="center">
+        <div class="row row-cols-1 row-cols-md-3 g-3" align="center">
+            <div class="col w-33" align="center">
+                <div class="card" style="border: 0;">
+                    <div class="card-body text-white bg-secondary bg-gradient"
+                         style="border-radius: 10px;">
+                        <h4 class="card-title">Количество побед:</h4>
+                        <p class="card-text">{{w}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col w-33">
+                <div class="card w-300" style="border: 0;">
+                    <div class="card-body text-white bg-secondary bg-gradient"
+                         style=" border-radius: 10px;">
+                        <h4 class="card-title">Количество ничей:</h4>
+                        <p class="card-text">{{d}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col w-33">
+                <div class="card" style="border: 0;">
+                    <div class="card-body text-white bg-secondary bg-gradient"
+                         style=" border-radius: 10px;">
+                        <h4 class="card-title">Количество проигрышей:</h4>
+                        <p class="card-text">{{lo}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" align="center" style="margin-top: 10px;">
+        <div class="row row-cols-1 row-cols-md-3 g-3" align="center">
+            <div class="col w-33" align="center">
+                <div class="card" style="border: 0;">
+                    <div class="card-body text-white bg-dark bg-gradient"
+                         style="border-radius: 10px;">
+                        <h4 class="card-title">Наибольшее количество очков:</h4>
+                        <p class="card-text">{{max}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col w-33">
+                <div class="card w-300" style="border: 0;">
+                    <div class="card-body text-white bg-dark bg-gradient"
+                         style=" border-radius: 10px;">
+                        <h4 class="card-title">Среднее количество очков:</h4>
+                        <p class="card-text">{{md}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col w-33">
+                <div class="card" style="border: 0;">
+                    <div class="card-body text-white bg-dark bg-gradient"
+                         style=" border-radius: 10px;">
+                        <h4 class="card-title">Наименьшее количество очков:</h4>
+                        <p class="card-text">{{min}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="/static/img/3.jpg" align="center" alt="Здесь должна быть красивая картинка"
+         class="w-100" style="margin-top: 20px;">
+</div>
+{% endblock %}

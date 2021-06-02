@@ -4,13 +4,18 @@ from data import db_session
 from data.users import User
 from data.games import Games
 from data.matches import Matches
-from forms.user import RegisterForm, LoginForm
+from api import matches_api
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'scythe'
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
 
 
 @login_manager.user_loader
@@ -21,6 +26,7 @@ def load_user(user_id):
 
 def main():
     db_session.global_init("db/matches.db")
+    app.register_blueprint(matches_api.blueprint)
     app.run()
 
 
@@ -105,7 +111,7 @@ def add():
 
         db_sess.merge(current_user)
         db_sess.commit()
-        return redirect('/index')
+        return redirect('/statistic')
 
 
 @app.route('/statistic', methods=['GET', 'POST'])
@@ -144,13 +150,34 @@ def statistic():
         print(w, lo, d)
         k = 1
         md = round(sum(scores) / len(scores))
-        return render_template('statistic.html', title='Статистика', w=w, lo=lo, d=d, max=max(scores), min=min(scores),
-                               md=md, name=name)
+        return redirect('/statistic/' + select_game)
 
 
-@app.route('/statistic<game>')
+@app.route('/statistic/<game>')
 def stat(game):
-    print(game)
+    db_sess = db_session.create_session()
+    user_id = current_user.id
+    game_id = db_sess.query(Games).filter(Games.title == game).first().id
+    print(user_id, game_id)
+    res = db_sess.query(Matches).filter(Matches.user_id == user_id, Matches.game_id == game_id)
+    w = 0
+    lo = 0
+    d = 0
+    scores = []
+    name = 'Статистика по игре "' + game + '"'
+    for i in res:
+        if i.result == 'win':
+            w += 1
+        elif i.result == 'lose':
+            lo += 1
+        else:
+            d += 1
+        scores.append(int(i.score))
+    print(w, lo, d)
+    k = 1
+    md = round(sum(scores) / len(scores))
+    return render_template('game_statistic.html', title=game, w=w, lo=lo, d=d, max=max(scores), min=min(scores), md=md,
+                           name=name)
 
 
 @app.route('/account')

@@ -10,7 +10,7 @@
                 <div class="form-floating mb-3">
                     <input style="height: 65px;" type="text" class="form-control" name="game" id="Game"
                            placeholder="Серп" required/>
-                    <label for="Game">Название игры</label>
+                    <label for="Game">Игра</label>
                     <datalist id="games">
                         <option value="Серп">
                         <option value="Селестия">
@@ -32,18 +32,21 @@
                         Пожалуйста впишите ваш счёт!
                     </div>
                 </div>
-                <div class="row radiobutton-row" ALIGN="CENTER">
+                <div class="row radiobutton-row" align="CENTER">
                     <label>Результат:</label>
                     <div class="col-s">
-                        <input class="form-check-input" type="radio" name="result" value="win" id="win" checked/>
+                        <input class="form-check-input" type="radio" style="vertical-align: middle" name="result"
+                               value="win" id="win" checked/>
                         <label class="form-check-label" for="win">Победа</label>
                     </div>
                     <div class="col-s">
-                        <input class="form-check-input" type="radio" name="result" value="draw" id="draw"/>
+                        <input class="form-check-input" type="radio" style="vertical-align: middle" name="result"
+                               value="draw" id="draw"/>
                         <label class="form-check-label" for="draw">Ничья</label>
                     </div>
                     <div class="col-s">
-                        <input class="form-check-input" type="radio" name="result" value="lose" id="lose"/>
+                        <input class="form-check-input" type="radio" style="vertical-align: middle" name="result"
+                               value="lose" id="lose"/>
                         <label class="form-check-label" for="lose">Проигрыш</label>
                     </div>
                 </div>
