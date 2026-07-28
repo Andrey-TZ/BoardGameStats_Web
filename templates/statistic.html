@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid" align="center">
+    {% if current_user.my_games %}
+    <section>
+        <h1>{{name}}</h1>
+        <form method="post" class="needs-validation" novalidate>
+            <div class="container-md" align="center">
+                <div class="form-floating" align="center">
+                    <select class="form-select" aria-label="Floating label select example"
+                            id="Stat_game" name="game" required>
+                        {% for game in games %}
+                        <option>{{game}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="Stat_game">Выберите игру</label>
+                    <div class="invalid-feedback">
+                        Выберите игру!
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3 mb-3">Выбрать</button>
+            </div>
+        </form>
+
+    </section>
+
+    {% else %}
+    <h1>Статистика</h1>
+    <p>У вас ещё нет ни одной записи</p>
+    {% endif %}
+    <div>
+        <img src='static/img/18.jpg' alt="Здесь должна быть красивая картинка"
+             class="w-100" align="center">
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 align="center">Регистрация</h1>
+<form action="" method="post" class="needs-validation" novalidate>
+    <div class="container-md" align="center">
+        <div class="form-floating mb-3">
+            <input style="height: 65px;" type="email" class="form-control" name="email" id="Email" placeholder="example@gmail.com" required/>
+            <label for="Email">Почта</label>
+            <div class="invalid-feedback">
+                Введены некорректные данные!
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input style="height: 65px;" type="password" class="form-control" name="password" id="Pass" placeholder="password" required>
+            <label for="Pass">Пароль</label>
+            <div class="invalid-feedback">
+                Пароль не введён!
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input style="height: 65px;" type="password" class="form-control" name="password_again" id="Pass2" placeholder="password"
+                   required>
+            <label for="Pass2">Повторите пароль</label>
+            <div class="invalid-feedback">
+                Пароль не введён!
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input style="height: 65px;" type="text" class="form-control" name="name" id="Name" placeholder="tip_zadrot" required/>
+            <label for="Name">Имя</label>
+            <div class="invalid-feedback">
+                Введены некорректные данные!
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input style="height: 65px;" type="text" class="form-control" name="game" id="Game" placeholder="tip_zadrot" required/>
+            <label for="Game">Любимая игра</label>
+            <div class="invalid-feedback">
+                Введены некорректные данные!
+            </div>
+            <div class="valid-feedback">
+                Хорошая игра!
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary ">Зарегистрироваться</button>
+        <p align="center" style="color: red;">{{message}}</p>
+    </div>
+</form>
+{% endblock %}

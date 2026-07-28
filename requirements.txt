@@ -1,0 +1,7 @@
+Flask
+Flask-Login
+SQLAlchemy
+SQLAlchemy-serializer
+Werkzeug
+WTForms
+requests
