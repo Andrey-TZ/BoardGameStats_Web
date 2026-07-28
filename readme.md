@@ -1,6 +1,6 @@
-# BoardGameStats
+# BoardGameStats Web
 
-BoardGameStats - веб-приложение для учета личной статистики по настольным играм.
+BoardGameStats Web - веб-приложение для учета личной статистики по настольным играм.
 
 Проект позволяет пользователю зарегистрироваться, добавлять результаты сыгранных партий и смотреть базовую статистику по каждой игре: количество побед, ничьих, поражений, максимальный, минимальный и средний счет.
 
@@ -54,11 +54,7 @@ GET /api/matches/<user_id>
 
 - Python
 - Flask
-- Flask-Login
 - SQLAlchemy
-- SQLAlchemy-serializer
-- Werkzeug
-- WTForms
 - SQLite
 - Jinja2 templates
 - Bootstrap 5
